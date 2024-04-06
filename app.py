@@ -1,7 +1,7 @@
 import os
 import requests
 from flask import Flask, render_template, request, redirect, url_for
-from raspador import raspador_infomoney
+import raspador
 
 app = Flask(__name__) # Cria uma instância do Flask. 
 
@@ -18,25 +18,22 @@ def contato():
 def materias():
   return render_template('materias.html') 
 
-@app.route("/raspador-infomoney")
-def infomoney():
-    html = """
+@app.route("/raspador-discursos")
+def discursos():
+    discursos = raspador.get_discursos()
+    html = f"""
     <!DOCTYPE html>
     <html>
     <head>
-         <title> Raspador Infomoney </title>
+         <title> Discursos do presidente </title>
     </head> 
     <body>
-        <h1> Veja todas as matérias do Infomoney que tem a palavra Petróleo no texto ou no titulo</h1>
+        <h1> Veja as principais frases de cada discurso presidencial.</h1>
         <p>
-        As matérias encontradas foram:
-        <ul>
-      """
-    for conteudo in raspador_infomoney():
-        if "com" in conteudo:
-            html += f'<li> <a href = "{conteudo["link"]}">{conteudo["titulo"]}'
-    html += """
-        </ul>
+        As aspas encontradas foram: <br />
+        {
+          "<br />".join([f"Titulo: {discurso["title"]}<br /><a href=\"{discurso["link"]}\">{discurso["content"]}</a>" for discurso in discursos])     
+        }
         </p>
     </body>
     </html>
