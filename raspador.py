@@ -50,5 +50,6 @@ def get_discursos():
             messages=[{"role": "user", "content": f"{prompt}: {main_text}"}
         ])
         discursos.append({"title": title_text, "link": link, "content":response.choices[0].message.content})
-
+        break
+    
     return discursos
