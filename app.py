@@ -32,7 +32,7 @@ def discursos():
         <p>
         As aspas encontradas foram: <br />
         {
-          "<br />".join([f"Titulo: {discurso["title"]}<br /><a href=\"{discurso["link"]}\">{discurso["content"]}</a>" for discurso in discursos])     
+          "<br />".join([f'Titulo: {discurso["title"]}<br /><a href="{discurso["link"]}">{discurso["content"]}</a>' for discurso in discursos])     
         }
         </p>
     </body>
