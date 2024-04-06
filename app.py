@@ -33,7 +33,7 @@ def infomoney():
         <ul>
       """
     for conteudo in raspador_infomoney():
-        if "petróleo" in conteudo:
+        if "com" in conteudo:
             html += f'<li> <a href = "{conteudo["link"]}">{conteudo["titulo"]}'
     html += """
         </ul>
