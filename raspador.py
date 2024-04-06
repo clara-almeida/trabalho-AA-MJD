@@ -22,7 +22,9 @@ def get_discursos():
     # Itera sobre as tags encontradas para extrair os títulos e os links
     discursos = []
 
-    for title in titles:
+    for i, title in enumerate(titles):
+        if i>=5:
+           break
         # Extrai o texto do título
         title_text = title.a.text.strip()
         # Extrai o link
@@ -50,6 +52,5 @@ def get_discursos():
             messages=[{"role": "user", "content": f"{prompt}: {main_text}"}
         ])
         discursos.append({"title": title_text, "link": link, "content":response.choices[0].message.content})
-        break
     
     return discursos
