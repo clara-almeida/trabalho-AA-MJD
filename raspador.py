@@ -23,7 +23,7 @@ def get_discursos():
     discursos = []
 
     for i, title in enumerate(titles):
-        if i>=5:
+        if i>=3:
            break
         # Extrai o texto do título
         title_text = title.a.text.strip()
