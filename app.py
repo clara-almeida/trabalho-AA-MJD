@@ -20,22 +20,9 @@ def materias():
 
 @app.route("/raspador-discursos")
 def discursos():
-    discursos = raspador.get_discursos()
-    html = f"""
-    <!DOCTYPE html>
-    <html>
-    <head>
-         <title> Discursos do presidente </title>
-    </head> 
-    <body>
-        <h1> Veja as principais frases de cada discurso presidencial.</h1>
-        <p>
-        As aspas encontradas foram: <br />
-        {
-          "<br />".join([f'Titulo: {discurso["title"]}<br /><a href="{discurso["link"]}">{discurso["content"]}</a>' for discurso in discursos])     
-        }
-        </p>
-    </body>
-    </html>
-    """
+    discursos = get_discursos()
+    html = render_template("discursos.html", discursos=discursos)
     return html
+
+if __name__ == "__main__":
+    app.run(debug=True)
