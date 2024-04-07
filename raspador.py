@@ -6,6 +6,7 @@ import requests
 from bs4 import BeautifulSoup
 from openai import OpenAI
 
+
 def get_discursos():
 
     chave_api = os.environ.get("OPENAI_API_KEY")
@@ -44,7 +45,7 @@ def get_discursos():
         # Concatena o texto dos parágrafos principais
         main_text = "\n".join(paragraph.get_text().strip() for paragraph in main_paragraphs)
 
-    #Integração com a OpenAI
+        #Integração com a OpenAI
 
         prompt = "Você é um jornalita e está escrevendo uma matéria sobre este discurso do presidente da república. Analise o conteúdo e selecione, sem realizar nenhuma alteração no texto, o trecho de maior relevância para uma matéria jornalística com um limite de 280 caracteres. Este trecho precisa ter relação com a temática principal do discurso. Responda somente com o trecho, não acrescente nenhuma palavra ou justificativa."
         response = client.chat.completions.create(
@@ -52,5 +53,5 @@ def get_discursos():
             messages=[{"role": "user", "content": f"{prompt}: {main_text}"}
         ])
         discursos.append({"title": title_text, "link": link, "content":response.choices[0].message.content})
-    
+        
     return discursos

@@ -1,7 +1,7 @@
 import os
 import requests
 from flask import Flask, render_template, request, redirect, url_for
-import raspador
+from raspador import get_discursos
 
 app = Flask(__name__) # Cria uma instância do Flask. 
 
