@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Melissa Duarte</title>
+{% extends "menu.html" %}
+{% block title %} Matérias {% endblock %}
 
 <style>
+  
   .article {
     margin-bottom: 30px;
   }
@@ -23,10 +20,8 @@
     height: auto;
   }
 </style>
-</head>
 
-<body>
-
+{% block conteudo %}
 <h1>Matérias publicadas</h1>
 
 <div class="article">
@@ -63,6 +58,4 @@
   <h3 class="subtitle">O número de diagnósticos de dengue saltou 42% em laboratórios particulares em uma semana; o de Covid-19 aumentou 39%</h3>
   <img class="image" src="https://images.jota.info/wp-content/uploads/2016/02/dengue-1024x650.jpg" alt="Mosquito da dengue" width="250" height="350">
 </div>
-
-</body>
-</html>
+{% endblock %}
