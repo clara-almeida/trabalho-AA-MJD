@@ -2,9 +2,12 @@ import os
 import requests
 from flask import Flask, render_template, request, redirect, url_for
 from raspador import get_discursos
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
+
 
 app = Flask(__name__) # Cria uma instância do Flask. 
-
+    
 
 @app.route("/")
 def apresentacao():
