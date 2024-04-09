@@ -1,16 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-     <title> Discursos do presidente </title>
-</head> 
-<body>
-    <h1> Veja as principais frases de cada discurso presidencial.</h1>
-    <p>
-    As aspas encontradas foram: <br /><br />
-    {% for discurso in discursos %}
-        Titulo: {{ discurso["title"] }}<br />
-        <a href="{{ discurso["link"] }}">{{ discurso["content"] }}</a><br /><br />
-    {% endfor %}
-    </p>
-</body>
-</html>
+{% extends "menu.html" %}
+{% block title %}Raspador de discursos{% endblock %}
+{% block conteudo %}
+<h1> Veja as principais frases de cada discurso presidencial.</h1>
+<p>
+As aspas encontradas foram: <br /><br />
+{% for discurso in discursos %}
+    Titulo: {{ discurso["title"] }}<br />
+    <a href="{{ discurso["link"] }}">{{ discurso["content"] }}</a><br /><br />
+{% endfor %}
+</p>
+{% endblock %}

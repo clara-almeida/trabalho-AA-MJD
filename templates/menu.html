@@ -1,10 +1,17 @@
 <!DOCTYPE html>
-
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+</head>
 <body> 
-    <h1>Menu</h1>
     <ul class="menu">    
     <li><a href="apresentacao.html">Apresentação</a></li>
     <li><a href="contato.html">Contato</a></li>
     <li><a href="materias.html">Matérias</a></li>
-    <li><a href="https://trabalho-aa-mjd.onrender.com/raspador-discursos">Principais aspas do presidente</a></li>
+    <li><a href="discursos.html">Principais aspas do presidente</a></li>
+    </ul>
+    {% block conteudo %}{% endblock %}
 </body>
+</html>

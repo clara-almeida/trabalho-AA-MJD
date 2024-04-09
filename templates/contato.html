@@ -1,31 +1,6 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Melissa Duarte</title>
-
-<style>
-    .article {
-      margin-bottom: 30px;
-    }
-    .title {
-      font-size: 24px;
-      margin-bottom: 5px;
-    }
-    .subtitle {
-      font-size: 16px;
-      color: #666;
-      margin-bottom: 10px;
-    }
-    .image {
-      max-width: 100%;
-      height: auto;
-    }
-  </style>
-  </head>
-
-<body>
+{% extends "menu.html" %}
+{% block title %} Melissa Duarte {% endblock %}  
+{% block conteudo %}
 <div class="container">
   <h1>Meus contatos</h1>  
   <div class="contact-info">
@@ -34,5 +9,4 @@
     <p><strong>Telefone:</strong> (00) 1234-5678</p>
     <p><strong>Endereço:</strong> Rua das Palmeiras, 1234 - Brasília</p>
   </div>
-</body>
-</html>
+{% endblock %}
